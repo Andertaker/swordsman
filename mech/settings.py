@@ -25,7 +25,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'verseau_swordsman',
         'USER': 'verseau', # Not used with sqlite3.
-        'PASSWORD': 'verseau1988', # Not used with sqlite3.
+        'PASSWORD': 'v123456', # Not used with sqlite3.
         'HOST': '127.0.0.1', # Set to empty string for localhost. Not used with sqlite3.
         'PORT': 3306, # Set to empty string for default. Not used with sqlite3.
     }
@@ -37,10 +37,10 @@ DATABASES = {
 
 #EMAIL_FILE_PATH = os.path.join(os.path.expanduser('~'), 'tmp/swordsman_emails')
 
-EMAIL_HOST = "smtp.jino.ru"
+EMAIL_HOST = "smtp.test.ru"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "contact@swordsman.su"
-EMAIL_HOST_PASSWORD = "verseau1988"
+EMAIL_HOST_PASSWORD = "v123456"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
