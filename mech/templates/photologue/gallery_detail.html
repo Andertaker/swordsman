@@ -1,0 +1,21 @@
+{% extends "photologue/root.html" %}
+{% load url from future %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ object.title }}</h1>
+<h2>Опубликован {{ object.date_added }}</h2>
+{% if object.description %}<p>{{ object.description }}</p>{% endif %}
+<div class="photo-gallery">
+    {% for photo in object.public %}
+    <div class="gallery-photo">
+        <a href="{{ photo.image.url }}" rel="{{ gallery.title_slug }}" title="{{ photo.title }}"><img class="lazy" src="/static/img/dummy.png" data-original="{{ photo.get_thumbnail_url }}" width=140 height=105 /></a>
+    </div>
+    {% endfor %}
+</div>
+<div style="clear:left"> &nbsp; </div>
+<p><a href="{% url 'pl-gallery-list' 1 %}">Смотреть все альбомы</a></p>
+
+{% endblock %}

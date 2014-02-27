@@ -1,0 +1,90 @@
+div.header, div.about, div.nav, div.content, div.footer {
+	border: 1px solid black;
+
+
+	margin-bottom: 0;
+}
+
+div.content {
+	background: #fff;
+	text-color: #444444;
+    padding: 20px;
+}
+
+
+body {
+ 	/* background: url(img/130.jpg) no-repeat   #884499; */
+ 	background:  #444444;
+ }
+
+
+
+div.row-fluid {
+	max-width: 1276px;
+}
+
+/*div.span12 {
+
+}*/
+
+
+div.header {
+
+	background: url(header.jpg) no-repeat;
+
+	height: 259px;
+	max-height: 259px;
+}
+
+
+ul.nav a {
+	font-size: 17pt;
+	color: white;
+
+}
+
+ul.nav a:hover {
+	color: #444444;
+
+}
+
+
+ul.nav-pills {
+	list-style: none; 
+	margin: 0;
+    padding: 0;
+	width: 100%;
+	text-align: justify;
+	text-align-last: justify;
+    text-justify: newspaper;
+	line-height: 0;
+	text-color: #fff;
+}
+
+ul.nav-pills li {
+	display: -moz-inline-box;
+    display: inline-block;
+    vertical-align:top;
+    text-align: center;
+}
+
+
+div.content {
+	
+	min-height: 150px !important;
+
+}
+
+
+
+
+
+div.footer {
+
+	margin-bottom: 0px;
+}
+
+
+
+
+

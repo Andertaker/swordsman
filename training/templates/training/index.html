@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Статистика{% endblock %}
+
+
+{% block base_content %}
+	<a target="_blank" href="{% url 'statistic:events' %}">Тренировки</a>
+	<a target="_blank" href="{% url 'statistic:total_scores' %}">Итоговые баллы</a>
+	
+	<br><br>
+	<div id="container" style="min-width: 310px; height: 720px; margin: 0 auto"></div>
+
+
+
+
+	<script>
+	{% autoescape off %}
+		dates = {{ dates }};
+		series = {{ series }};
+	{% endautoescape %}
+	</script>
+	<script src="{% static 'training/js/highcharts.js' %}" type="text/javascript"></script>
+	<script src="{% static 'training/js/make_graph.js' %}" type="text/javascript"></script>
+
+{% endblock %}

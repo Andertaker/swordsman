@@ -1,0 +1,180 @@
+{% load cms_tags sekizai_tags %}
+{% load menu_tags %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Меченосец - {% page_attribute "page_title" %}{% block title %}{% endblock %}</title>
+        
+        
+        <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{STATIC_URL}}style.css" rel="stylesheet">
+        
+
+        
+		<script src="{{STATIC_URL}}jquery-2.0.3.min.js" type="text/javascript"></script>
+        <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+      {% render_block "css" %}
+  </head>
+
+
+  <body>
+      {% cms_toolbar %}
+
+
+
+
+      	<div class="row-fluid">
+	    	<div></div>
+	    		<div class="span12 header">{% placeholder base_header %}</div>
+	    	
+
+
+
+
+
+	    	<div class="span12 nav">
+	    		<!-- Горизонтальное меню !-->
+				{% load menu_tags %}
+				<ul class="nav nav-pills">
+				    {% show_menu 0 100 0 100 %}
+				</ul>
+	    	</div>
+	    	
+	    	{% if user.is_active %}
+	    	<div class="span12 nav">
+	    		<!-- Горизонтальное меню !-->
+				<ul class="nav nav-pills">
+	
+					<li><a href="/statistic/">Статистика</a></li>
+					<li><a href="/photologue/gallery/">Фотогалерея</a></li>
+					<li><a href="/video/">Видео уроки</a></li>
+					<li><a href="http://forum.swordsman.su">Форум</a></li>
+
+	    		</ul>
+	    	</div>
+			{% endif %}
+
+				    <div class="span12 content">
+				    	<div class="">
+				    		{% if user.is_authenticated %}
+				    			{{user.username}} <a href="/logout/">Выход</a>
+					    		
+				    		{% else %}
+				    			<a class="login_button" href="#" onclick="return false;">Вход</a>
+				    		
+				    		{% endif %}
+				    		<br>
+				    		
+				    		
+				    		
+					    	current_page = 	{{current_page}}<br>
+					    	next = 			{{ next }}<br>
+					    	
+					    	current_url = 	{{current_url}} <br>
+				    		user = 			{{user}} <br>
+							last_name = 	{{user.last_name}} <br>
+							username = 		{{user.username}} <br>
+										
+							user.is_active =	{{user.is_active}} <br>	
+							user.is_anonymous =	{{user.is_anonymous}} <br>	
+							
+							user.is_authenticated =	{{user.is_authenticated}} <br>	
+			
+							{{user.credentials}}<br>	
+								
+									{{request.path}}	
+								
+							{{request}}
+			
+				    		
+				    	</div>
+				    	
+
+							
+
+				    	    {% placeholder base_content %}
+
+		      				{% block base_content %}  Empty page   {% endblock %}
+
+
+				    </div>
+
+
+
+				    <div class="span12 footer">{% placeholder base_footer %}</div>
+	     </div>	
+
+
+
+	<div id="bg">&nbsp;</div>
+
+
+	<div id="login_container" class="login_container">
+		<form action="/login/" method="post">{% csrf_token %}
+			<label for="username">Имя пользователя:</label>
+			<input id="username" name="username" required class="required">
+			
+			
+			<br>
+			<label for="username">Пароль:</label>
+			<input id="password" name="password" type="password" required  class="required">
+			
+			
+		    <input type="hidden" name="this_is_the_login_form" value="1" >
+		    <input type="hidden" name="next" value="{{request.path}}" >
+			
+			<br>
+			
+			<input value="Войти" type="submit">
+			
+			
+			
+			
+		</form>
+		<br>
+		
+		<a class="close_button" href="#" onclick="return false;">Закрыть</a>
+		
+	</div>
+
+
+
+
+
+      {% render_block "js" %}
+  </body>
+
+
+
+
+<script>
+
+	$(document).ready(function() {
+	// Handler for .ready() called.
+		$("li.selected").addClass("active");
+
+
+
+
+
+	});
+
+
+	$("a.login_button").click(function(){
+		$("#bg, #login_container").show();
+	});
+
+
+	$("#login_container a.close_button").click(function(){
+		$("#bg, #login_container").hide();
+		
+	});
+
+
+</script>
+
+
+</html>

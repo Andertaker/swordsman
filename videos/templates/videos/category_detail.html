@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Видео - {{object.name}}{% endblock %}
+
+
+{% block base_content %}
+	<h2>{{object.name}}</h2>
+
+		
+	
+	{% for album in albums %}
+		 <h3><a href="{% url 'video:album_detail' album.slug %}">{{album.name}}</a> ({{album.videofiles_count}})</h3>
+	{% endfor %}
+
+
+	<p><a href="{% url 'video:category_list'  %}">Все категории</a></p>
+
+{% endblock %}

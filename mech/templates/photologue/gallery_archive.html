@@ -1,0 +1,32 @@
+{% extends "photologue/root.html" %}
+{% load url from future %}
+
+{% block title %}Последние альбомы{% endblock %}
+
+{% block content %}
+
+<h1>Последние альбомы</h1>
+
+{% if latest %}
+    {% for gallery in latest %}
+    <div class="photo-gallery">
+        <h2><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h2>
+        
+        {% if gallery.sample %}
+        <p>Последние фотографии в альбоме:</p>
+        {% for photo in gallery.sample %}
+                <div class="gallery-photo">
+                    <a href="{{ photo.image.url }}" rel="{{ gallery.title_slug }}" title="{{ photo.title }}"><img class="lazy" src="/static/img/dummy.png" data-original="{{ photo.get_thumbnail_url }}" width=140 height=105 /></a>
+                </div>
+        {% endfor %}
+        <div style="clear:left"> &nbsp; </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+{% else %}
+    <p>Нет альбомов для просмотра.</p>
+{% endif %}
+
+<p><a href="{% url 'pl-gallery-list' 1 %}">Смотреть все альбомы</a></p>
+
+{% endblock %}

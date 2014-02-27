@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Видео - все категории{% endblock %}
+
+{% block base_content %}
+	<h2>Все категории</h2>
+	
+	
+	{% for category in object_list %}
+		 <h3><a href="{% url 'video:category_detail' category.slug %}">{{category.name}}</a></h3>
+	
+	{% endfor %}
+
+
+{% endblock %}

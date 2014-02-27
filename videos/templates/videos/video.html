@@ -1,0 +1,23 @@
+<div id="flash-plugin-{{ object.id }}">Missing flash plugin. Download <a href="http://adobe.com/flashplayer">here</a>.</div>
+
+
+  <script type="text/javascript">//<![CDATA[
+    var flashvars = {};
+    flashvars.movie = "{{ object.get_movie }}";
+
+
+
+
+    var params = {};
+    params.allowfullscreen = "true";
+
+
+    var attributes = {};
+    attributes.align = "middle";
+
+    swfobject.embedSWF("/static/cms/swf/player.swf",
+                       "flash-plugin-{{ object.id }}",
+                       "{{ object.get_width }}", "{{ object.get_height }}",
+                       "9", "/static/cms/swf/expressInstall.swf",
+                       flashvars, params, attributes);
+  //]]></script>

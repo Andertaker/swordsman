@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Тренировка {{ event.name }}{% endblock %}
+
+{% block base_content %}
+	<h4>{{ event.name }} {{ event.date }}</h4>
+	<br>
+	
+	
+	<table class="table table-bordered table-hover table-condensed">
+		<thead>
+			<tr>
+				<th>Участник</th>
+				<th>Баллы</th>
+				<th>Комментарий</th>
+	
+			</tr>
+		</thead>
+		<tbody>
+			    {% for s in event.score_set.all %}
+			        <tr>
+			        	<td>{{ s.user.last_name }} {{ s.user.first_name }}</td>
+			        	<td>{{ s.score }}</td>
+						<td>{{ e.comment }}</td>
+			        </tr>
+			    {% endfor %}
+		</tbody>
+	</table>
+	
+
+
+
+{% endblock %}
+
+
+
+
+

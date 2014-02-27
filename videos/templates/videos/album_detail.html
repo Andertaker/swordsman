@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load sekizai_tags %}
+
+
+
+{% block title %}Видео - {{object.name}}{% endblock %}
+
+
+{% block base_content %}
+	<script type="text/javascript" src="{{ STATIC_URL }}cms/js/libs/swfobject.min.js"></script>
+
+	{% for file in videofiles %}
+		<div class="video-block">
+			{{file.name}}<br>
+			{{file.render_video}}
+		</div>
+	{% endfor %}
+	
+	<div style="clear:left"> &nbsp; </div>
+	<p><a href="{% url 'video:category_detail' object.category.slug %}">Все альбомы</a></p>
+
+{% endblock %}

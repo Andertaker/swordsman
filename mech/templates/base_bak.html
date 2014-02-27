@@ -1,0 +1,108 @@
+{% load cms_tags sekizai_tags %}
+{% load menu_tags %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Меченосец - {% page_attribute "page_title" %}</title>
+        <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{STATIC_URL}}style.css" rel="stylesheet">
+
+        <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+      {% render_block "css" %}
+  </head>
+
+
+  <body>
+      {% cms_toolbar %}
+
+
+
+
+      	<div class="row-fluid">
+	    
+	    	<div class="span12 header">{% placeholder base_header %}</div>
+	    	<div class="span12 about">{% placeholder base_about %}</div>
+
+
+
+	    	<div class="span12 navbar">
+	    		<!-- Горизонтальное меню !-->
+				{% load menu_tags %}
+				<ul class="nav nav-tabs bs-docs-sidenav affix">
+				    {% show_menu 0 100 0 100 %}
+				</ul>
+	    	</div>
+
+
+	    </div>	
+
+
+			<div class="container-fluid">
+				<div class="row-fluid">
+
+				    <div class="span3 left_block bs-docs-sidebar">
+				    	<!-- Вертикальное меню !-->
+						{% load menu_tags %}
+						<ul class="nav nav-list bs-docs-sidenav affix">
+						     {% show_menu 0 100 0 100 %}
+						</ul>
+					</div>
+
+
+
+				    <div class="span9 content">
+
+
+				    	    {% placeholder base_content %}
+
+		      				{% block base_content %}  Empty page   {% endblock %}
+
+
+				    </div>
+			 	</div>
+			</div>
+
+
+
+
+	    </div>
+
+
+
+
+
+
+
+	    <div class="span12 footer">{% placeholder base_footer %}</div>
+
+
+
+
+
+      {% render_block "js" %}
+  </body>
+</html>
+
+
+
+<script>
+
+
+
+	$(document).ready(function() {
+	// Handler for .ready() called.
+		$("li.selected").addClass("active");
+
+
+
+
+
+	});
+
+
+
+
+</script>

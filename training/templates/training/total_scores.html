@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Итоговая статистика{% endblock %}
+
+{% block base_content %}
+	<h4>Итоговая статистика</h4><br>
+
+	<table class="table table-bordered table-hover table-condensed">
+		<thead>
+			<tr>
+				<th>Участник</th>
+				<th>Кол-во тренировок</th>
+				<th>Баллы</th>
+				<th>Добавлен</th>
+				<th>Дата последнего посещения сайта</th>
+	
+			</tr>
+		</thead>
+		<tbody>
+			    {% for u in users %}
+			        <tr>
+			        	<td>{{ u.last_name }} {{ u.first_name }}</td>
+			        	<td>{{ u.training_count }}</td>
+			        	<td>{{ u.total_scores }}</td>
+			        	<td>{{ u.date_joined|date:"Y-m-d"}}</td>
+						<td>{{ u.last_login}}</td>
+			        </tr>
+			    {% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}
