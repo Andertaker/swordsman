@@ -8,11 +8,11 @@ STATIC_PATH = os.path.join(os.path.expanduser('~'), 'domains/swordsman.su')
 
 # Django settings for mech project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Dmitry Krupin', 'krupin.dv19@gmail.com'),
 )
 
 
