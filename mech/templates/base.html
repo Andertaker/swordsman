@@ -35,18 +35,13 @@
 
 
   <body>
-      
-
-
+      {% cms_toolbar %}
+		<div id="bg"></div>
 
 
       	<div class="row-fluid">
 	    	<div></div>
-	    		<div class="span12 header"></div>
-	    	
-
-
-
+	    	<div class="span12 header"></div>
 
 
 	    	<div class="span12 nav">
@@ -74,16 +69,16 @@
 			
 			
 						
-				    		{% if user.is_authenticated %}
-				    		<div class="user_info">
-				    			{{user.username}} <a class="btn btn-small" href="/logout/">Выход</a>
-				    		</div>
-				    		{% else %}
-				    		<div class="span12 authentication">
-					    		<a class="btn btn-small login_button" href="#" onclick="return false;">Вход</a>
-					    		<a class="btn btn-small"  href="/register/">Регистрация</a>
-							</div>
-				    		{% endif %}
+    		{% if user.is_authenticated %}
+    		<div class="user_info">
+    			{{user.username}} <a class="btn btn-small" href="/logout/">Выход</a>
+    		</div>
+    		{% else %}
+    		<div class="span12 authentication">
+	    		<a class="btn btn-small login_button" href="#" onclick="return false;">Вход</a>
+	    		<a class="btn btn-small"  href="/register/">Регистрация</a>
+			</div>
+    		{% endif %}
 
 
 				    	
@@ -99,15 +94,6 @@
 
 				    <div class="span12 footer">{% placeholder base_footer %}</div>
 	     </div>	
-
-
-
-
-
-
-	<div id="bg"></div>
-
-
 
 
 
@@ -140,8 +126,6 @@
 
 
 
-
-
       {% render_block "js" %}
   </body>
 
@@ -151,16 +135,12 @@
 <script>
 
 	$(document).ready(function() {
-	// Handler for .ready() called.
+		// Handler for .ready() called.
 		$("li.selected").addClass("active");
-    // Attach fancyBox
+    	// Attach fancyBox
 		$(".fancybox").fancybox();
-    // Add fancybox class to anchored images
+    	// Add fancybox class to anchored images
         $(document).find('a').has('img').addClass('fancybox');
-
-
-
-
 	});
 
 
@@ -179,8 +159,6 @@
 	$("img.lazy").show().lazyload();
 	
 
-
 </script>
-
 
 </html>
