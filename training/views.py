@@ -54,6 +54,11 @@ class ScoresView(generic.TemplateView):
         dates = []
         events_order = {}
         
+        if not events:
+            context['dates'] = '[]'
+            context['series'] = '[]'
+            return context
+
         i = 0;
         for e in events:
             dates.append(e.date.strftime("%d.%m.%Y"))
