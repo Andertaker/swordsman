@@ -158,7 +158,7 @@ LOGIN_REDIRECT_URL = '/'
 RESTRICTED_URLS = (
     (r'/photologue/(.*)$', 'mech.view_gallery'),
     (r'/video/(.*)$', 'videos.view_video'),
-    (r'/statistic/(.*)$', 'training.view_statistic'),
+#    (r'/statistic/(.*)$', 'training.view_statistic'),
     (r'/arendapokupka-trenirovochnogo-snaryazheniya/(.*)$', 'training.view_statistic'),
     
     
