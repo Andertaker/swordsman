@@ -48,7 +48,7 @@ class ScoresView(generic.TemplateView):
        
         "Берём точку отсчёта(тренировку) после которой выводим остальные"
         now = datetime.now()
-        date_from = datetime.now() - timedelta(days=90)
+        date_from = datetime.now() - timedelta(days=180)
         events = Event.objects.order_by('date').filter(date__gt=date_from)
         
         dates = []
