@@ -2,6 +2,7 @@
 import json
 import copy
 from datetime import datetime, timedelta
+from collections import OrderedDict
 
 from django.views import generic
 from django.db import connection, transaction
@@ -52,7 +53,7 @@ class ScoresView(generic.TemplateView):
         events = Event.objects.order_by('date').filter(date__gt=date_from)
         
         dates = []
-        events_order = {}
+        events_order = OrderedDict()
         
         if not events:
             context['dates'] = '[]'
