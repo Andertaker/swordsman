@@ -76,7 +76,7 @@ class ScoresView(generic.TemplateView):
                 
             FROM training_score
             LEFT JOIN auth_user ON (training_score.user_id = auth_user.id)
-            WHERE auth_user.is_active AND training_score.event_id > %(event_id)s
+            WHERE auth_user.is_active AND training_score.event_id >= %(event_id)s
             
             GROUP BY user_id
                 ''', {"event_id": events[0].id})
